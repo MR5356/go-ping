@@ -1,4 +1,4 @@
-module github.com/MR5356/go-ping
+module github.com/MR5356/go-ping/ping
 
 go 1.19
 
