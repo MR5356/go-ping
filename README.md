@@ -8,7 +8,11 @@ A simple but powerful ICMP echo (ping) library for Go, inspired by
 Here is a very simple example that sends and receives three packets:
 
 ```go
-pinger, err := probing.NewPinger("www.google.com")
+import (
+    ping "github.com/MR5356/go-ping"
+)
+
+pinger, err := ping.NewPinger("www.google.com")
 if err != nil {
 	panic(err)
 }
@@ -23,7 +27,11 @@ stats := pinger.Statistics() // get send/receive/duplicate/rtt stats
 Here is an example that emulates the traditional UNIX ping command:
 
 ```go
-pinger, err := probing.NewPinger("www.google.com")
+import (
+    ping "github.com/MR5356/go-ping"
+)
+
+pinger, err := ping.NewPinger("www.google.com")
 if err != nil {
 	panic(err)
 }
@@ -80,7 +88,7 @@ go get -u github.com/prometheus-community/pro-bing
 To install the native Go ping executable:
 
 ```bash
-go get -u github.com/prometheus-community/pro-bing/...
+go get -u github.com/mr5356/go-ping/...
 $GOPATH/bin/ping
 ```
 
@@ -139,7 +147,11 @@ This library also provides support for HTTP probing.
 Here is a trivial example:
 
 ```go
-httpCaller := probing.NewHttpCaller("https://www.google.com",
+import (
+    ping "github.com/MR5356/go-ping"
+)
+
+httpCaller := ping.NewHttpCaller("https://www.google.com",
     probing.WithHTTPCallerCallFrequency(time.Second),
     probing.WithHTTPCallerOnResp(func(suite *probing.TraceSuite, info *probing.HTTPCallInfo) {
         fmt.Printf("got resp, status code: %d, latency: %s\n",
