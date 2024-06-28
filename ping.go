@@ -577,7 +577,7 @@ func (p *Pinger) runLoop(
 			return nil
 
 		case <-timeout.C:
-			return nil
+			return fmt.Errorf("timeout")
 
 		case r := <-recvCh:
 			err := p.processPacket(r)
