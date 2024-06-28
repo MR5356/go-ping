@@ -7,7 +7,7 @@ import (
 	"os/signal"
 	"time"
 
-	probing "github.com/MR5356/go-ping/ping"
+	probing "github.com/MR5356/go-ping"
 )
 
 var usage = `
